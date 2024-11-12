@@ -9,16 +9,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
     private Coach myCoach;
+    private Coach anotherCoach;
 
     @Autowired
     // change back to constructor injection
-    public void DemoController(@Qualifier("trackCoach") Coach theCoach) {
+    public DemoController(
+            // Bean - the default singleton scope
+            @Qualifier("trackCoach") Coach theCoach,
+            @Qualifier("trackCoach") Coach theAnotherCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         myCoach = theCoach;
+        anotherCoach = theAnotherCoach;
     }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/check")
+    public String check() {
+        return "Comparing beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
     }
 }
