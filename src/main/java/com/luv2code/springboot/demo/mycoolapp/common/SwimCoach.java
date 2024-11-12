@@ -1,16 +1,13 @@
 package com.luv2code.springboot.demo.mycoolapp.common;
+// Not using @Component on purpose
+public class SwimCoach implements Coach {
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class TrackCoach implements Coach {
-
-    public TrackCoach() {
+    public SwimCoach() {
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
     @Override
     public String getDailyWorkout() {
-        return "Run a hard 5k!";
+        return "Swim 1000 meters as a warm up";
     }
 }
