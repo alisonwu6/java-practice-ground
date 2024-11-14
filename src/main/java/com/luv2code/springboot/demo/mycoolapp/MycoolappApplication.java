@@ -22,13 +22,14 @@ public class MycoolappApplication {
 		return runner -> {
 			// Step 3: Update main app -> Inject the StudentDAO
 //			createStudent(studentDAO);
-//			createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 //			readStudent(studentDAO);
 //			queryForStudents(studentDAO);
 //			queryForStudentsByLastName(studentDAO);
 //			updateStudent(studentDAO);
 //			deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+//			deleteAllStudents(studentDAO);
+
 		};
 		// Java Lambda expression ends
 	}
