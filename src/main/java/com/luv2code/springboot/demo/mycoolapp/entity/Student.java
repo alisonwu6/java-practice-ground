@@ -22,6 +22,10 @@ public class Student {
     private String email;
 
     // define constructors
+    // Error fixing: Adding the default constructor because there's an error when executing readStudent().
+    public Student() {
+
+    }
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
