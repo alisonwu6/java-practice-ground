@@ -1,11 +1,13 @@
 package com.luv2code.springboot.demo.mycoolapp.dao;
 
 import com.luv2code.springboot.demo.mycoolapp.entity.Student;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 // Step 2: Define DAO implementation
 // - Inject the entity manager
@@ -31,5 +33,27 @@ public class StudentDAOImlp implements StudentDAO {
     @Override
     public Student findById(Integer id) {
         return entityManager.find(Student.class, id);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        // create query
+//        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order by lastName asc", Student.class);  // default: acs
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order", Student.class);
+
+        // return query results
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Student> findByLastName(String theLastName) {
+        // create query
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student WHERE lastName=:theData", Student.class);
+
+        // set query parameters
+        theQuery.setParameter("theData", theLastName);
+
+        // return query results
+        return theQuery.getResultList();
     }
 }
