@@ -3,9 +3,7 @@ package com.luv2code.springboot.demo.mycoolapp.rest;
 import com.luv2code.springboot.demo.mycoolapp.entity.Employee;
 import com.luv2code.springboot.demo.mycoolapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +23,20 @@ public class EmployeeRestController {
     @GetMapping("/employees")
     public List<Employee> findAll() {
         return employeeService.findAll();
+    }
+
+    // add mapping for GET /employees/{employeeId}
+
+    @GetMapping("/employees/{employeeId}")
+    public Employee getEmployee(@PathVariable int employeeId) {
+
+        Employee theEmployee = employeeService.findById(employeeId);
+
+        if (theEmployee == null) {
+            throw new RuntimeException("Employee id not found - " + employeeId);
+        }
+
+        return theEmployee;
     }
 
 }
