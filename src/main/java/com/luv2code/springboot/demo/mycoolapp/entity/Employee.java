@@ -3,7 +3,7 @@ package com.luv2code.springboot.demo.mycoolapp.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Employee")
+@Table(name = "employee")
 public class Employee {
 
     // define fields
