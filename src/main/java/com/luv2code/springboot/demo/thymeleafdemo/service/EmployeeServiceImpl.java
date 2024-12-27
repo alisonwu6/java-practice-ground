@@ -1,7 +1,7 @@
-package com.luv2code.springboot.demo.mycoolapp.service;
+package com.luv2code.springboot.demo.thymeleafdemo.service;
 
-import com.luv2code.springboot.demo.mycoolapp.dao.EmployeeRepository;
-import com.luv2code.springboot.demo.mycoolapp.entity.Employee;
+import com.luv2code.springboot.demo.thymeleafdemo.dao.EmployeeRepository;
+import com.luv2code.springboot.demo.thymeleafdemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

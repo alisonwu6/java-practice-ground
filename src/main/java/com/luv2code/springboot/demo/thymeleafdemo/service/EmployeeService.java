@@ -1,6 +1,6 @@
-package com.luv2code.springboot.demo.mycoolapp.service;
+package com.luv2code.springboot.demo.thymeleafdemo.service;
 
-import com.luv2code.springboot.demo.mycoolapp.entity.Employee;
+import com.luv2code.springboot.demo.thymeleafdemo.entity.Employee;
 
 import java.util.List;
 
